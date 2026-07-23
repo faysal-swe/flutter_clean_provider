@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
+import '../../../../routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // so we navigate to a fixed profile (id: 2) to demonstrate the
       // profile-fetch flow. In a real API the login response (or a
       // follow-up "me" endpoint) would give you the logged-in user's id.
-      context.go('/profile/2');
+      context.go(Routes.profilePath(2));
     } else if (auth.status == AuthStatus.error) {
       Fluttertoast.showToast(msg: auth.errorMessage ?? 'Login failed');
     }

@@ -7,6 +7,7 @@ import '../../../../core/session/auth_session.dart';
 import '../../../../core/widgets/error_view.dart';
 import '../../../../core/widgets/loading_widget.dart';
 import '../providers/profile_provider.dart';
+import '../../../../routes/routes.dart';
 
 class ProfileScreen extends StatefulWidget {
   final int userId;
@@ -48,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> with WidgetsBindingObserv
   void _logout(BuildContext context) {
     AuthSession.instance.clear();
     context.read<ProfileProvider>().reset();
-    context.go('/login');
+    context.go(Routes.login);
   }
 
   @override
